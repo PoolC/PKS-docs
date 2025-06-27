@@ -1,6 +1,15 @@
-# PKS 공식 문서
+<!--
+    Actually, the `align` attribute on `p` or `h1` elements is deprecated [1].
+    But who cares? It works nicely! :D
 
-> PKS (Poolc Kubernetes Service)는 PoolC 동아리원을 위한 내부 쿠버네티스 서비스입니다.
+    [1]: https://html.spec.whatwg.org/multipage/obsolete.html#non-conforming-features
+-->
+<p align="center">
+    <img src="./assets/pks-logo.webp" width="150px" alt="PKS logo" />
+    <h1 align="center">PKS 공식 문서</h1>
+</p>
+
+PKS (Poolc Kubernetes Service)는 PoolC 동아리원을 위한 내부 쿠버네티스 서비스입니다.
 
 PKS는 2024년 11월 30일, PoolC 홈커밍 행사 중 최유찬 회원과 양정일(@jjungs7) 회원의 비공식적인 대화에서 출발했습니다. 이후 양정일 회원과 양제성(@J3m3) 회원 간의 논의를 기점으로 초기 구상이 구체화되기 시작했고, 진영민(@jimmy0006) 회원이 합류하면서 개발이 본격화되었습니다. 초기 기여자 여러분들께 감사드립니다!
 
