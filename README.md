@@ -40,6 +40,8 @@ PKS는 다음과 같은 고민에서 시작됐습니다.
 - [하드웨어 스펙](./docs/hw-spec.md)
 - [TODO list](./docs/todo.md)
 
-## 관련 세미나
+## 관련 레포지토리
 
-TBD
+- PKS 세미나: TBD
+- [PKS Credentials Updater](https://github.com/PoolC/pks-credentials-updater): PKS 클러스터의 유저 정보를 일정 주기로 PoolC API 서버와 동기화하는 어플리케이션
+- [PKS Bootstrapping](https://github.com/PoolC/pks-bootstrapping): PKS 클러스터 부트스트래핑을 위한 manifest 모음
