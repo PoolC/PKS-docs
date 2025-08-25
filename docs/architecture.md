@@ -45,3 +45,7 @@ flowchart TB
   Node2 -->|pull image| Registry
   Node3 -->|pull image| Registry
 ```
+
+## 네트워크 아키텍처
+
+![network](/assets/network.svg)
