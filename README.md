@@ -34,7 +34,7 @@ PKS는 다음과 같은 고민에서 시작됐습니다.
 ## 문서 모음
 
 - [아키텍처 개요](./docs/architecture.md)
-- [사용자 가이드](./docs/user-guide.md)
+- [사용자 가이드](./docs/user-guides/README.md)
 - [운영자 가이드](./docs/admin-guide.md)
 - [PKS에 기여하기](./docs/contributing.md)
 - [하드웨어 스펙](./docs/hw-spec.md)
