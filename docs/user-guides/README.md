@@ -141,7 +141,7 @@ PKS 클러스터의 접속 권한은 **7일을 주기로 매주 월요일 00시 
 
 TODO: 각 문서가 완성되면 링크 추가
 
-- PoolC Kubernetes Service 101
+- [PoolC Kubernetes Service 101](./PKS-101.md)
 - Argo CD를 활용해 GitOps 기반의 개발 프로세스 확립하기
 - PKS에서 데이터베이스 워크로드 관리하기 (feat. StatefulSet, PersistentVolumeClaim)
 
