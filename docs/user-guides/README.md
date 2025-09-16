@@ -113,6 +113,9 @@ poolc-system         Active   13d
 poolc-users          Active   33h
 ```
 
+더 다양한 `kubectl` 명령어가 궁금하시다면, [`kubectl` Quick Reference](./kubectl-quick-ref.md)를
+참조해주세요!
+
 ## 4. (Optional) CA 인증서 설정
 
 `kubectl` CLI 도구는 HTTPS를 통해 PKS 클러스터의 API 서버와 통신합니다. 해당 과정에서 API 서버의 디지털
@@ -142,6 +145,7 @@ PKS 클러스터의 접속 권한은 **7일을 주기로 매주 월요일 00시 
 TODO: 각 문서가 완성되면 링크 추가
 
 - [PoolC Kubernetes Service 101](./PKS-101.md)
+- [`kubectl` Quick Reference](./kubectl-quick-ref.md)
 - Argo CD를 활용해 GitOps 기반의 개발 프로세스 확립하기
 - PKS에서 데이터베이스 워크로드 관리하기 (feat. StatefulSet, PersistentVolumeClaim)
 
