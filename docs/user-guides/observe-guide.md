@@ -198,7 +198,7 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
 ```
 
 #### Grafana에서 로그 확인하기
-1. 모니터링 페이지(https://mon.dev.poolc.org)에 접속한 뒤, 좌측 메뉴에서 **Dashboards**를 클릭합니다.
+1. 모니터링 페이지([https://mon.dev.poolc.org](https://mon.dev.poolc.org))에 접속한 뒤, 좌측 메뉴에서 **Dashboards**를 클릭합니다.
 
 > [!NOTE]
 > PKS의 모니터링 페이지는 별도의 로그인 없이 모든 대시보드를 조회할 수 있습니다.
