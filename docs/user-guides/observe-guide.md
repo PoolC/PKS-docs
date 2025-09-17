@@ -61,7 +61,7 @@ poolc-users          Active   33h
 > [!WARNING]
 > 페이지에 접속할 수 없다면 교내망에 연결되어 있지 않았을 가능성이 높습니다.
 > 
-> 교내 네트워크를 사용하거나 YSVPN을 활성화했는지 다시 한번 확인해주세요
+> 교내 네트워크를 사용하거나 YSVPN을 활성화했는지 다시 한번 확인해주세요.
 
 ## Quick Start
 
@@ -81,7 +81,7 @@ poolc-users          Active   33h
 3. 수정이 완료된 스크립트를 터미널에 그대로 붙여넣어 실행해주세요.
 
 > [!NOTE]
-> PKS에 배포되는 워크로드들은 dev.poolc.org의 하위 도메인을 **서로 겹치지 않는 선에서** 자유롭게 사용할 수 있습니다. kubectl get ingress --all-namespaces 명령어로 현재 사용 중인 도메인을 확인하고, 중복되지 않는 이름을 사용해주세요.
+> PKS에 배포되는 워크로드들은 dev.poolc.org의 하위 도메인을 **서로 겹치지 않는 선에서** 자유롭게 사용할 수 있습니다. `kubectl get ingress --all-namespaces` 명령어로 현재 사용 중인 도메인을 확인하고, 중복되지 않는 이름을 사용해주세요.
 
 ``` Bash
 NAMESPACE_NAME="my-monitoring-test"
