@@ -56,7 +56,7 @@ poolc-users          Active   33h
 
 아래의 링크를 통해 정상적으로 접속되는지 확인해 주세요.
 
-[https://mon.dev.poolc.org](https://mon.dev.poolc.org)
+[http://mon.dev.poolc.org](http://mon.dev.poolc.org)
 
 > [!WARNING]
 > 페이지에 접속할 수 없다면 교내망에 연결되어 있지 않았을 가능성이 높습니다.
@@ -65,7 +65,7 @@ poolc-users          Active   33h
 
 ## Quick Start
 
-이제 간단한 Nginx 웹 서버를 배포하고 로그를 확인하며 PKS의 모니터링 기능을 체험해봅시다! :D
+이제 간단한 Nginx 웹 서버를 배포하고 로그를 확인하며 PKS의 모니터링 기능을 체험해봅시다!
 
 ### Step 1. Nginx 배포하기
 
@@ -76,9 +76,11 @@ poolc-users          Active   33h
 
 1. 아래 스크립트 전체를 복사하여 텍스트 에디터에 붙여넣어주세요.
 
-2. `NAMESPACE_NAME`과 `SUBDOMAIN_NAME`을 원하는 값으로 수정해주세요. (알파벳 소문자와 하이픈만 사용 가능)
+2. `NAMESPACE_NAME` 을 원하는 값으로 수정해주세요. (알파벳 소문자와 하이픈만 사용 가능. ex. coffee)
 
-3. 수정이 완료된 스크립트를 터미널에 그대로 붙여넣어 실행해주세요.
+3. `SUBDOMAIN_NAME`을 원하는 값으로 수정해주세요. (알파벳 소문자와 하이픈만 사용 가능. ex. coffe)
+
+4. 수정이 완료된 스크립트를 터미널에 그대로 붙여넣어 실행해주세요.
 
 > [!NOTE]
 > PKS에 배포되는 워크로드들은 dev.poolc.org의 하위 도메인을 **서로 겹치지 않는 선에서** 자유롭게 사용할 수 있습니다. `kubectl get ingress --all-namespaces` 명령어로 현재 사용 중인 도메인을 확인하고, 중복되지 않는 이름을 사용해주세요.
@@ -168,10 +170,11 @@ spec:
                   number: 80
 EOF
 ```
-4. 다음의 명령어를 사용해서 리소스가 잘 생성되었는지 확인해봅시다.
-```console
-kubectl get all -n $NAMESPACE_NAME
 
+4. 다음의 명령어를 사용해서 리소스가 잘 생성되었는지 확인해봅시다.
+
+```console
+$ kubectl get all -n $NAMESPACE_NAME
 NAME                                    READY   STATUS    RESTARTS   AGE
 pod/nginx-deployment-698d9748f5-g64dx   1/1     Running   0          23m
 
@@ -198,46 +201,44 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
 ```
 
 #### Grafana에서 로그 확인하기
-1. 모니터링 페이지([https://mon.dev.poolc.org](https://mon.dev.poolc.org))에 접속한 뒤, 좌측 메뉴에서 **Dashboards**를 클릭합니다.
 
-> [!NOTE]
-> PKS의 모니터링 페이지는 별도의 로그인 없이 모든 대시보드를 조회할 수 있습니다.
+1. 모니터링 페이지([http://mon.dev.poolc.org](http://mon.dev.poolc.org))에 접속한 뒤, 좌측 메뉴에서 **Dashboards**를 클릭합니다.
 
-<figure align="center">
-    <img src="../../assets/user_main.webp" />
+<p align="center">
+  <img alt="grafana main page" src="../../assets/user_main.webp" />
+</p>
 
-</figure>
+2. "Filter by tags" 기능으로 `logs` 태그를 필터링합니다.
 
+<p align="center">
+    <img alt="a dashboard using filter" src="../../assets/user_dashboard_filter.webp" />
+</p>
 
-
-2. 수 많은 대시보드 중 저희가 사용할 대시보드는 `logs` 라는 태그를 가진 대시보드입니다.
-
-상단의 `Tags` 필터를 이용해 `logs`를 선택해주세요.
-
-<figure align="center">
-    <img src="../../assets/user_dashboard_filter.webp" />
-</figure>
-
-<figure align="center">
-    <img src="../../assets/user_dashboard_logs.webp" />
-</figure>
+<p align="center">
+    <img alt="a dashboard filtered with logs" src="../../assets/user_dashboard_logs.webp" />
+</p>
 
 3. Logs / App 대시보드
+
 이 대시보드는 Pod 내부에서 발생하는 로그(stdout/stderr)를 보여줍니다.
 - `namespace` 필터에서 방금 생성한 네임스페이스를 선택하면, 컨테이너가 출력하는 로그를 확인할 수 있습니다.
 
-<figure align="center">
-    <img src="../../assets/user_dashboard_logs_app.webp" />
-</figure>
-
+<p align="center">
+    <img alt="An app log dashboard for Argo CD" src="../../assets/user_dashboard_logs_app.webp" />
+    <span> "argocd"를 네임스페이스로 사용한 예시</span>
+</p>
 
 4. Logs / Ingress-Nginx 대시보드
-이 대시보드는 외부의 요청이 PKS 클러스터로 들어오는 관문인 Ingress-Nginx의 접속 로그를 보여줍니다.
+
+이 대시보드는 PKS 클러스터로 들어오는 Ingress-Nginx의 access log 를 보여줍니다.
+[access logs 가 무엇인가요?](#애플리케이션-로그와-ingress-로그의-차이)
+
 - `namespace`와 `service` 필터를 알맞게 선택하면, 우리가 생성한 웹 서버($SUBDOMAIN_NAME.dev.poolc.org)로 들어온 요청 기록을 확인할 수 있습니다.
 
-<figure align="center">
-    <img src="../../assets/user_dashboard_logs_ingress.webp" />
-</figure>
+<p align="center">
+    <img alt="An ingress-nginx log dashboard for Argo CD" src="../../assets/user_dashboard_logs_ingress.webp" />
+    <span> "argocd"를 네임스페이스로 사용한 예시</span>
+</p>
 
 ### Step 3. 실습 완료 후 모든 자원 삭제하기
 
@@ -247,6 +248,9 @@ kubectl delete namespace $NAMESPACE_NAME
 ```
 
 ## What's Next?
+
+TODO: 각 문서가 완성되면 링크 추가
+
 - Argo CD를 활용해 GitOps 기반의 개발 프로세스 확립하기
 
 ## 부록
