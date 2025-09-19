@@ -230,8 +230,7 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
 
 4. Logs / Ingress-Nginx 대시보드
 
-이 대시보드는 PKS 클러스터로 들어오는 Ingress-Nginx의 access log 를 보여줍니다.
-[access logs 가 무엇인가요?](#애플리케이션-로그와-ingress-로그의-차이)
+이 대시보드는 PKS 클러스터로 들어오는 Ingress-Nginx의 [access log](#애플리케이션-로그와-ingress-로그의-차이) 를 보여줍니다.
 
 - `namespace`와 `service` 필터를 알맞게 선택하면, 우리가 생성한 웹 서버($SUBDOMAIN_NAME.dev.poolc.org)로 들어온 요청 기록을 확인할 수 있습니다.
 
