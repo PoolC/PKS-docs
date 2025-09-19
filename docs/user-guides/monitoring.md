@@ -228,6 +228,18 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
     <span> "argocd"를 네임스페이스로 사용한 예시</span>
 </p>
 
+**① Label Filters**: 로그를 필터링하는 데 사용되는 레이블 선택 창입니다. `namespace`, `pod` 등의 값을 지정하여 원하는 로그만 선택적으로 조회할 수 있습니다.
+
+**② Time Range**: 조회할 로그의 시간 범위를 설정하는 기능입니다.
+
+**③ Log Count & Timeline**: 선택된 시간 범위와 필터에 해당하는 전체 로그의 수와 시간대별 발생 빈도를 그래프로 나타냅니다.
+
+**④ Log Entries**: 필터링된 로그 내용이 시간 순서대로 표시되는 영역입니다.
+
+**⑤ Log Details**: 개별 로그 라인을 펼쳐 상세 정보를 확인할 수 있는 기능입니다.
+
+---
+
 4. Logs / Ingress-Nginx 대시보드
 
 이 대시보드는 PKS 클러스터로 들어오는 Ingress-Nginx의 [access log](#애플리케이션-로그와-ingress-로그의-차이) 를 보여줍니다.
@@ -238,6 +250,16 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
     <img alt="An ingress-nginx log dashboard for Argo CD" src="../../assets/user_dashboard_logs_ingress.webp" />
     <span> "argocd"를 네임스페이스로 사용한 예시</span>
 </p>
+
+**① Label Filters**: Ingress-Nginx 로그를 필터링하기 위한 레이블 선택 창입니다. 트래픽이 전달된 `namespace`와 `service`를 기준으로 특정 서비스의 접근 기록만 조회할 수 있습니다.
+
+**② Time Range**: 조회할 로그의 시간 범위를 설정하는 기능입니다.
+
+**③ Log Count & Timeline**: 해당 조건으로 조회된 전체 access log의 수와 시간대별 요청 빈도를 그래프로 나타냅니다.
+
+**④ Log Entries**: 필터링된 access log의 상세 내용이 시간 순으로 표시됩니다.
+
+**⑤ Log Details**: 개별 로그 라인을 펼쳐 상세 정보를 확인할 수 있는 기능입니다.
 
 ### Step 3. 실습 완료 후 모든 자원 삭제하기
 
