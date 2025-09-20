@@ -202,31 +202,23 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
 
 #### Grafana에서 로그 확인하기
 
-1. 모니터링 페이지([http://mon.dev.poolc.org](http://mon.dev.poolc.org))에 접속한 뒤, 좌측 메뉴에서 **Dashboards**를 클릭합니다.
+1. 모니터링 페이지(http://mon.dev.poolc.org)에 접속한 뒤, 좌측 메뉴에서 Dashboards 클릭하기
 
-<p align="center">
-  <img alt="grafana main page" src="../../assets/user_main.webp" />
-</p>
+   ![Grafana main page](../../assets/user_main.webp)
 
-2. "Filter by tags" 기능으로 `logs` 태그를 필터링합니다.
+2. "Filter by tags" 기능으로 `logs` 태그가 포함된 대시보드 필터링하기
 
-<p align="center">
-    <img alt="a dashboard using filter" src="../../assets/user_dashboard_filter.webp" />
-</p>
+   ![Filtering dashboards](../../assets/user_dashboard_filter.webp)
+   ![Dashboards filtered with the `logs` tag](../../assets/user_dashboard_logs.webp)
 
-<p align="center">
-    <img alt="a dashboard filtered with logs" src="../../assets/user_dashboard_logs.webp" />
-</p>
+3. Logs / App 대시보드에서 Pod 로그(stdout/stderr) 확인하기
 
-3. Logs / App 대시보드
+   - `namespace` 필터에서 방금 생성한 네임스페이스를 선택하면, 컨테이너가 출력하는 로그를 확인할 수 있습니다.
 
-이 대시보드는 Pod 내부에서 발생하는 로그(stdout/stderr)를 보여줍니다.
-- `namespace` 필터에서 방금 생성한 네임스페이스를 선택하면, 컨테이너가 출력하는 로그를 확인할 수 있습니다.
-
-<p align="center">
-    <img alt="An app log dashboard for Argo CD" src="../../assets/user_dashboard_logs_app.webp" />
-    <span> "argocd"를 네임스페이스로 사용한 예시</span>
-</p>
+   <p align="center">
+     <img alt="An app log dashboard for Argo CD" src="../../assets/user_dashboard_logs_app.webp" />
+     <span> "argocd"를 네임스페이스로 사용한 예시</span>
+   </p>
 
 **① Label Filters**: 로그를 필터링하는 데 사용되는 레이블 선택 창입니다. `namespace`, `pod` 등의 값을 지정하여 원하는 로그만 선택적으로 조회할 수 있습니다.
 
@@ -240,16 +232,14 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
 
 ---
 
-4. Logs / Ingress-Nginx 대시보드
+4. Logs / Ingress-Nginx 대시보드에서 Ingress-Nginx 로그 확인하기
 
-이 대시보드는 PKS 클러스터로 들어오는 Ingress-Nginx의 [access log](#애플리케이션-로그와-ingress-로그의-차이) 를 보여줍니다.
+   - `namespace`와 `service` 필터를 알맞게 선택하면, 우리가 생성한 웹 서버($SUBDOMAIN_NAME.dev.poolc.org)로 들어온 요청 기록을 확인할 수 있습니다.
 
-- `namespace`와 `service` 필터를 알맞게 선택하면, 우리가 생성한 웹 서버($SUBDOMAIN_NAME.dev.poolc.org)로 들어온 요청 기록을 확인할 수 있습니다.
-
-<p align="center">
-    <img alt="An ingress-nginx log dashboard for Argo CD" src="../../assets/user_dashboard_logs_ingress.webp" />
-    <span> "argocd"를 네임스페이스로 사용한 예시</span>
-</p>
+   <p align="center">
+     <img alt="An ingress-nginx log dashboard for Argo CD" src="../../assets/user_dashboard_logs_ingress.webp" />
+     <span> "argocd"를 네임스페이스로 사용한 예시</span>
+   </p>
 
 **① Label Filters**: Ingress-Nginx 로그를 필터링하기 위한 레이블 선택 창입니다. 트래픽이 전달된 `namespace`와 `service`를 기준으로 특정 서비스의 접근 기록만 조회할 수 있습니다.
 
