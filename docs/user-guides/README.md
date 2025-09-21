@@ -147,7 +147,7 @@ TODO: 각 문서가 완성되면 링크 추가
 - [PoolC Kubernetes Service 101](./PKS-101.md)
 - [`kubectl` Quick Reference](./kubectl-quick-ref.md)
 - [리소스 사용량 및 로그 모니터링하기](./monitoring.md)
-- Argo CD를 활용해 GitOps 기반의 개발 프로세스 확립하기
+- [Argo CD를 활용해 GitOps 기반의 개발 프로세스 확립하기](./ArgoCD.md)
 - PKS에서 데이터베이스 워크로드 관리하기 (feat. StatefulSet, PersistentVolumeClaim)
 
 ## 부록
