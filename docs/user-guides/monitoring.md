@@ -344,9 +344,7 @@ kubectl delete namespace $NAMESPACE_NAME
 
 ## What's Next?
 
-TODO: 각 문서가 완성되면 링크 추가
-
-- Argo CD를 활용해 GitOps 기반의 개발 프로세스 확립하기
+- [Argo CD를 활용해 GitOps 기반의 개발 프로세스 확립하기](./ArgoCD.md)
 
 ## 부록
 
