@@ -684,8 +684,12 @@ Argo CD는 이러한 GitOps 철학하에 아래 과정으로 배포 프로세스
 
 Argo CD는 배포되는 애플리케이션을 "Application"이라고 하는
 [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)를
-통해 관리합니다. [Argo CD CLI 사용하기](#cli-사용하기)에서 잠깐 살펴봤듯, "Application" manifest는 어떤
-레포지토리에서, 무엇을, 어떻게 배포할지 정의합니다.
+통해 관리합니다. [Argo CD CLI 사용하기](#cli-사용하기)에서 잠깐 살펴봤듯, Application 리소스에 대한
+manifest는 어떤 레포지토리에서, 무엇을, 어떻게 배포할지 정의합니다.
+
+> [!NOTE]
+> Application manifest의 내용은 Application 삭제 시 모두 유실되므로, 별도 백업 또는 Git을 통한
+> 관리가 권장됩니다.
 
 #### 참조
 
