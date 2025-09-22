@@ -45,3 +45,7 @@ PKS는 다음과 같은 고민에서 시작됐습니다.
 - PKS 세미나: TBD
 - [PKS Credentials Updater](https://github.com/PoolC/pks-credentials-updater): PKS 클러스터의 유저 정보를 일정 주기로 PoolC API 서버와 동기화하는 어플리케이션
 - [PKS Bootstrapping](https://github.com/PoolC/pks-bootstrapping): PKS 클러스터 부트스트래핑을 위한 manifest 모음
+
+## Special Thanks To
+
+- 최진호(@jinhodotchoi) 회원: PKS 클러스터 이용 편의성 향상을 위한 PoolC 홈페이지 인터페이스 구축
