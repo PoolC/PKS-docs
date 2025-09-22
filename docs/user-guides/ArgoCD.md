@@ -439,9 +439,8 @@ TODO
 
 3. "GENERAL" 설정값을 입력합니다. "Application Name"을 제외한 나머지는 이미지와 동일하게 설정해주세요.
 
-   > [!TIP]
-   > `kubectl get applications -A` 명령어를 통해서도 전체 Application 목록을 확인할 수 있습니다.
-   > 알파벳 소문자와 `-` (하이픈)으로만 이루어진 이름을 사용해주세요.
+   `kubectl get applications -A` 명령어를 통해서도 전체 Application 목록을 확인할 수 있습니다.
+   알파벳 소문자와 "-"만으로 이루어진 이름을 사용해주세요.
 
    <p align="center">
      <img alt="Application general configuration" src="../../assets/argocd-web-new-app-general.webp">
@@ -451,9 +450,8 @@ TODO
 4. "SOURCE"와 "DESTINATION" 설정값을 입력합니다. "Namespace"를 제외한 나머지는 이미지와 동일하게
    설정해주세요. 설정을 완료한 뒤 "CREATE"를 클릭해주세요.
 
-   > [!TIP]
-   > `kubectl get ns` 명령어로 전체 Namespace 목록을 확인할 수 있습니다.
-   > 알파벳 소문자와 `-` (하이픈)으로만 이루어진 이름을 사용해주세요.
+   `kubectl get ns` 명령어로 전체 Namespace 목록을 확인할 수 있습니다.
+   알파벳 소문자와 "-"만으로 이루어진 이름을 사용해주세요.
 
    <p align="center">
      <img alt="Application source & destination configuration" src="../../assets/argocd-web-new-app-src-dest.webp">
@@ -590,9 +588,8 @@ EOF
 
 2. Argo CD web UI에서 "Refresh"를 클릭하면, 실시간으로 업데이트되는 과정을 확인할 수 있습니다.
 
-   > [!NOTE]
-   > 현재 설정상 Argo CD는 직접 refresh를 해주지 않아도, 약 [2분 ~ 3분을 주기](https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/#automated-sync-semantics)로
-   > 등록된 GitHub 레포지토리의 "manifests" 디렉토리에서 관리되는 manifest에 변화가 있는지 확인합니다.
+   현재 설정상 Argo CD는 직접 refresh를 해주지 않아도, 약 [2분 ~ 3분을 주기](https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/#automated-sync-semantics)로
+   등록된 GitHub 레포지토리의 "manifests" 디렉토리에서 관리되는 manifest에 변화가 있는지 확인합니다.
 
    ![Argo CD Application details tree: refreshing](../../assets/argocd-web-refresh.webp)
 
