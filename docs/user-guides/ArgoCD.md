@@ -544,7 +544,7 @@ APPLICATION_NAME="UNIQUE_STRING_WITH_LOWERCASE_ALPHABET_OR_HYPHEN"
 NAMESPACE_NAME="UNIQUE_STRING_WITH_LOWERCASE_ALPHABET_OR_HYPHEN"
 
 argocd login grpc.argocd.dev.poolc.org --insecure --username $USERNAME --password $PASSWORD
-argocd app create -f - <<EOF
+argocd app create --insecure -f - <<EOF
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
