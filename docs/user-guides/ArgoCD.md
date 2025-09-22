@@ -638,8 +638,7 @@ Argo CD는 배포되는 애플리케이션을 "Application"이라고 하는
 
 #### 참조
 
--　[Application Specification](https://argo-cd.readthedocs.io/en/stable/user-guide/application-specification/)
-
+- [Application Specification](https://argo-cd.readthedocs.io/en/stable/user-guide/application-specification/)
 - [Automated Sync Policy](https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/)
 
 ### GitHub Actions가 무엇인가요?
