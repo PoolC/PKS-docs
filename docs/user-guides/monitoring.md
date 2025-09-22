@@ -239,9 +239,9 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
 
    ⑤ Log Details: 개별 로그 라인을 펼쳐 상세 정보를 확인할 수 있는 기능입니다.
 
-4. Logs / Ingress-Nginx 대시보드에서 Ingress-Nginx 로그 확인하기
+4. Logs / Ingress-NGINX 대시보드에서 Ingress-NGINX 로그 확인하기
 
-   이 대시보드는 PKS 클러스터로 들어오는 Ingress-Nginx의 [access log](#애플리케이션-로그와-access-로그의-차이)를 보여줍니다.
+   이 대시보드는 PKS 클러스터로 들어오는 [Ingress-NGINX](#ingress-nginx가-무엇인가요)의 [access log](#애플리케이션-로그와-access-로그의-차이)를 보여줍니다.
 
    - "namespace"와 "service" 필터를 알맞게 선택하면, 우리가 생성한 웹 서버("$SUBDOMAIN_NAME.dev.poolc.org")로 들어온 요청 기록을 확인할 수 있습니다.
 
@@ -250,7 +250,7 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
        <span> "argocd"를 네임스페이스로 사용한 예시</span>
    </p>
 
-   ① Label Filters: Ingress-Nginx 로그를 필터링하기 위한 레이블 선택 창입니다. 트래픽이 전달된 "namespace"와 "service"를 기준으로 특정 서비스의 접근 기록만 조회할 수 있습니다.
+   ① Label Filters: Ingress-NGINX 로그를 필터링하기 위한 레이블 선택 창입니다. 트래픽이 전달된 "namespace"와 "service"를 기준으로 특정 서비스의 접근 기록만 조회할 수 있습니다.
 
    ② Time Range: 조회할 로그의 시간 범위를 설정하는 기능입니다.
 
@@ -277,9 +277,9 @@ TODO: 각 문서가 완성되면 링크 추가
 ### Grafana가 무엇인가요?
 Grafana는 다양한 데이터 소스로부터 시계열 데이터를 가져와 시각화해주는 오픈소스 대시보드 툴입니다. PKS에서는 클러스터의 각종 로그와 메트릭 정보를 Grafana 대시보드를 통해 제공하여, 사용자가 자신의 워크로드 상태를 직관적으로 파악할 수 있도록 돕습니다.
 
-### ingress-nginx가 무엇인가요?
+### Ingress-NGINX가 무엇인가요?
 
 
 ### 애플리케이션 로그와 access 로그의 차이
 - **애플리케이션 로그 (Logs / App)**: 컨테이너 내부에서 실행되는 애플리케이션이 직접 출력하는 로그입니다. "console.log", "print" 문 등으로 출력하는 내용들이 여기에 해당하며, 애플리케이션의 내부 동작을 디버깅하는 데 주로 사용됩니다.
-- **access 로그 (Logs / Ingress-Nginx)**: 클러스터 외부에서 내부의 서비스로 들어오는 모든 HTTP 요청에 대한 기록입니다. 어떤 사용자가 언제, 어떤 주소로, 어떤 메소드(GET, POST 등)를 사용해 접속했는지 등의 정보를 담고 있어 트래픽 분석이나 접근 제어에 유용합니다.
+- **access 로그 (Logs / Ingress-NGINX)**: 클러스터 외부에서 내부의 서비스로 들어오는 모든 HTTP 요청에 대한 기록입니다. 어떤 사용자가 언제, 어떤 주소로, 어떤 메소드(GET, POST 등)를 사용해 접속했는지 등의 정보를 담고 있어 트래픽 분석이나 접근 제어에 유용합니다.
