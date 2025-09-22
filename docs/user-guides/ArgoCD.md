@@ -15,6 +15,7 @@
   - [Step 6. Workflow 실행 결과 확인](#step-6-workflow-실행-결과-확인)
   - [Step 7. Argo CD에 GitHub 레포지토리 등록](#step-7-argo-cd에-github-레포지토리-등록)
   - [Step 8. CI/CD 파이프라인 테스트](#step-8-cicd-파이프라인-테스트)
+  - [Step 9. 실습 완료 후 모든 자원 삭제하기](#step-9-실습-완료-후-모든-자원-삭제하기)
 - [부록](#부록)
   - [GitOps와 Argo CD](#gitops와-argo-cd)
   - [Argo CD의 Application manifest](#argo-cd의-application-manifest)
@@ -432,7 +433,7 @@ TODO
 - 풀씨 홈페이지 수정 이후 Argo CD ID 및 비밀번호 확인하는 방법 추가
 - 공용 아이디인 것도 언급
 
-#### Web UI 사용하기
+#### Web UI를 사용해 레포지토리 등록하기
 
 1. [http://argocd.dev.poolc.org](http://argocd.dev.poolc.org)에 접속한 뒤,
    풀씨 홈페이지에서 확인한 Username과 Password를 이용해 로그인해주세요.
@@ -523,7 +524,7 @@ TODO
      <span>서브도메인으로 "water"를 사용한 예시</span>
    </p>
 
-#### CLI 사용하기
+#### CLI를 사용해 레포지토리 등록하기
 
 1. [Argo CD CLI installation documentation](https://argo-cd.readthedocs.io/en/stable/cli_installation/)를
 참조해 Argo CD CLI를 설치해주세요.
@@ -609,7 +610,48 @@ EOF
      <span>서브도메인으로 "water"를 사용한 예시</span>
    </p>
 
-## 부록
+### Step 9. 실습 완료 후 모든 자원 삭제하기
+
+#### Web UI를 사용해 자원 삭제하기
+
+1. 생성한 Application의 상세 보기 화면에서, 해당 Application으로 관리되는 모든 하위 리소스를 삭제할 수 있습니다.
+
+   ![Delete Application from Argo CD web UI](../../assets/argocd-web-delete.webp)
+
+2. 아래 명령어를 참조해 [Application 설정](#web-ui를-사용해-레포지토리-등록하기)에서 입력했던 Namespace까지
+   삭제해주세요.
+
+   ```bash
+   kubectl delete ns $NAMESPACE_NAME
+   ```
+
+#### CLI를 사용해 자원 삭제하기
+
+아래 내용을 참조해 Argo CD Application 리소스를 삭제해주세요.
+
+1. 하단의 스크립트 내용을 복사한 후, 사용하는 텍스트 에디터에 붙여넣어주세요.
+2. `USERNAME`과 `PASSWORD`를 풀씨 홈페이지에서 확인한 값으로 수정해주세요.
+3. `APPLICATION_NAME`을 [앞서 설정한 Application의 이름](#cli를-사용해-레포지토리-등록하기)으로 수정해주세요.
+   - 예시: pks-argocd-demo
+4. `NAMESPACE_NAME`을 [앞서 설정한 Namespace의 이름](#cli를-사용해-레포지토리-등록하기)으로 수정해주세요.
+   - 예시: pks-argocd-demo
+
+```bash
+USERNAME="풀씨 홈페이지에서 확인한 Username"
+PASSWORD="풀씨 홈페이지에서 확인한 Password"
+APPLICATION_NAME="UNIQUE_STRING_WITH_LOWERCASE_ALPHABET_OR_HYPHEN"
+NAMESPACE_NAME="UNIQUE_STRING_WITH_LOWERCASE_ALPHABET_OR_HYPHEN"
+
+# 세션 만료를 고려해 로그아웃 후 재로그인합니다. 이미 로그인이 되어 있는 상태라면,
+# logout / login 명령어를 하나의 명령어로 대체할 수도 있습니다.
+# argocd relogin --password $PASSWORD
+argocd logout grpc.argocd.dev.poolc.org --insecure
+argocd login grpc.argocd.dev.poolc.org --insecure --username $USERNAME --password $PASSWORD
+
+argocd app delete $APPLICATION_NAME --insecure
+
+kubectl delete ns $NAMESPACE_NAME
+```
 
 ### GitOps와 Argo CD
 
