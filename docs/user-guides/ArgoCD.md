@@ -142,7 +142,7 @@ git commit -m "build: add Dockerfile"
 
 1. 하단의 스크립트 내용을 복사한 후, 사용하는 텍스트 에디터에 붙여넣어주세요.
 2. `SUBDOMAIN_NAME`을 원하는 값으로 수정해주세요.
-   - 예시: `water`
+   - 예시: pks-argocd-demo
    - 참조: [서브도메인이 무엇인가요?](./PKS-101.md#서브도메인이-무엇인가요)
 3. 수정된 스크립트를 로컬 터미널에 그대로 복사 & 붙여넣기해 실행해주세요.
 
@@ -521,7 +521,7 @@ TODO
 
    <p align="center">
      <img alt="The Python web server" src="../../assets/argocd-python-webserver.webp">
-     <span>서브도메인으로 "water"를 사용한 예시</span>
+     <span>서브도메인으로 "pks-argocd-demo"를 사용한 예시</span>
    </p>
 
 #### CLI를 사용해 레포지토리 등록하기
@@ -534,9 +534,9 @@ TODO
    1. 하단의 스크립트 내용을 복사한 후, 사용하는 텍스트 에디터에 붙여넣어주세요.
    2. `USERNAME`과 `PASSWORD`를 풀씨 홈페이지에서 확인한 값으로 수정해주세요.
    3. `APPLICATION_NAME`을 원하는 값으로 수정해주세요.
-      - 예시: `water`
+      - 예시: pks-argocd-demo
    4. `NAMESPACE_NAME`을 원하는 값으로 수정해주세요.
-      - 예시: `water`
+      - 예시: pks-argocd-demo
 
 ```bash
 USERNAME="풀씨 홈페이지에서 확인한 Username"
@@ -607,7 +607,7 @@ EOF
 
    <p align="center">
      <img alt="The Python web server" src="../../assets/argocd-python-webserver-updated.webp">
-     <span>서브도메인으로 "water"를 사용한 예시</span>
+     <span>서브도메인으로 "pks-argocd-demo"를 사용한 예시</span>
    </p>
 
 ### Step 9. 실습 완료 후 모든 자원 삭제하기
