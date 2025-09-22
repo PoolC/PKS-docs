@@ -17,6 +17,7 @@
   - [Step 8. CI/CD 파이프라인 테스트](#step-8-cicd-파이프라인-테스트)
   - [Step 9. 실습 완료 후 모든 자원 삭제하기](#step-9-실습-완료-후-모든-자원-삭제하기)
 - [부록](#부록)
+  - [전체 실습 실행 결과물](#전체-실습-실행-결과물)
   - [GitOps와 Argo CD](#gitops와-argo-cd)
   - [Argo CD의 Application manifest](#argo-cd의-application-manifest)
   - [GitHub Actions가 무엇인가요?](#github-actions가-무엇인가요)
@@ -652,6 +653,14 @@ argocd app delete $APPLICATION_NAME --insecure
 
 kubectl delete ns $NAMESPACE_NAME
 ```
+
+## 부록
+
+### 전체 실습 실행 결과물
+
+- [PoolC/pks-argocd-demo GitHub 레포지토리](https://github.com/PoolC/pks-argocd-demo)
+- [pks-argocd-demo Application web UI](http://argocd.dev.poolc.org/applications/argocd/pks-argocd-demo)
+- [배포된 Python 웹 서버](http://pks-argocd-demo.dev.poolc.org)
 
 ### GitOps와 Argo CD
 
