@@ -320,7 +320,7 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
 
    ① Label Filters: 생성한 네임스페이스를 선택하여 해당 워크로드의 상태만 필터링해서 볼 수 있습니다.
 
-   ② 성능 요약 패널:
+   ② 성능 요약 패널: ([자세히 알아보기](#쿠버네티스-리소스resources-설정하기))
      - CPU Utilization (from requests): 파드가 요청(requests)한 CPU 양 대비 현재 사용량을 나타냅니다. 182%라는 것은 요청량보다 1.82배 많은 CPU를 사용하고 있음을 의미합니다.
      - CPU Utilization (from limits): 파드가 사용할 수 있는 최대 CPU 양(limits) 대비 현재 사용량을 나타냅니다. 91.2%로, 설정된 한계치에 가깝게 CPU를 사용하고 있음을 보여줍니다.
      - Memory Utilization (from requests): 파드가 요청(requests)한 Memory 양 대비 현재 사용량을 나타냅니다.
@@ -352,11 +352,42 @@ Grafana는 다양한 데이터 소스로부터 시계열 데이터를 가져와 
 
 ### Ingress-NGINX가 무엇인가요?
 
-Ingress-NGINX는 클러스터 외부의 HTTP/HTTPS 요청을 내부의 어떤 서비스로 전달할지 정의하는 Ingress 규칙을 실행하는 컨트롤러입니다. 이 문서의 실습에서 사용자가 YAML로 Ingress 리소스를 생성한 것이 바로 이 "라우팅 규칙"을 정의한 것입니다.
+Ingress-NGINX는 클러스터로 들어오는 HTTP/HTTPS 요청을 내부의 어떤 서비스로 전달할지 정의하는 Ingress 규칙을 실행하는 컨트롤러입니다. 이 문서의 실습에서 사용자가 YAML로 Ingress 리소스를 생성한 것이 바로 이 "라우팅 규칙"을 정의한 것입니다.
 
-PKS에서는 Ingress-NGINX Controller가 클러스터의 관문 역할을 하므로, 어떤 요청이 언제 들어왔는지 기록하는 access log가 바로 이 Controller에서 생성됩니다.
+PKS에서는 Ingress-NGINX Controller가 요청을 내부의 서비스로 전달하므로, 어떤 요청이 언제 들어왔는지 기록하는 access log가 바로 이 Controller에서 생성됩니다.
 
 ### 애플리케이션 로그와 access 로그의 차이
 
 - **애플리케이션 로그 (Logs / App)**: 컨테이너 내부에서 실행되는 애플리케이션이 직접 출력하는 로그입니다. "console.log", "print" 문 등으로 출력하는 내용들이 여기에 해당하며, 애플리케이션의 내부 동작을 디버깅하는 데 주로 사용됩니다.
 - **access 로그 (Logs / Ingress-NGINX)**: 클러스터 외부에서 내부의 서비스로 들어오는 모든 HTTP 요청에 대한 기록입니다. 어떤 사용자가 언제, 어떤 주소로, 어떤 메소드(GET, POST 등)를 사용해 접속했는지 등의 정보를 담고 있어 트래픽 분석이나 접근 제어에 유용합니다.
+
+### 쿠버네티스 리소스(Resources) 설정하기
+
+쿠버네티스 리소스(Resources) 설정은 컨테이너가 사용할 CPU와 메모리 양을 정하는 규칙입니다.
+
+예시에서는 다음과 같이 정의되었습니다.
+
+```yaml
+# 리소스 요청량 및 최대 제한량을 설정합니다. (성능 및 안정성 확보)
+resources:
+  requests:
+    cpu: "50m"
+    memory: "64Mi"
+  limits:
+    cpu: "100m"
+    memory: "128Mi"
+```
+
+requests (요청량): 최소 리소스 보장량입니다. 쿠버네티스는 이 요청량을 보고 앱을 어디에 배치할지 결정합니다.
+
+- `cpu: "50m"`: CPU 성능을 0.05코어는 보장받습니다.
+- `memory: "64Mi"`: 메모리를 최소 64MiB는 확보합니다.
+
+limits (제한량): 최대 리소스 사용량 제한입니다. 이 한계를 넘으면 CPU는 느려지고, 메모리는 앱이 강제 종료될 수 있습니다.
+
+- `cpu: "100m"`: CPU를 최대 0.1코어까지만 사용하도록 제한합니다.
+- `memory: "128Mi"`: 메모리를 최대 128MiB까지만 사용하도록 제한합니다.
+
+이 설정을 통해 한 앱이 문제를 일으켜 다른 앱까지 망가뜨리는 것을 막아줍니다.
+
+대시보드의 ["성능 요약 패널"](#grafana에서-metric-확인하기)은 요청량(requests)과 최대량(limits) 대비 "현재 얼마나 사용 중인지"를 보여주는 지표입니다.
