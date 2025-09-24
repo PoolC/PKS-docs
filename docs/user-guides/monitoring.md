@@ -254,7 +254,7 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
 
 4. Logs / Ingress-NGINX 대시보드에서 Ingress-NGINX 로그 확인하기
 
-   이 대시보드는 PKS 클러스터로 들어오는 [Ingress-NGINX](#ingress-nginx가-무엇인가요)의 [access log](#애플리케이션-로그와-access-로그의-차이)를 보여줍니다.
+   이 대시보드는 [Ingress-NGINX](#ingress-nginx가-무엇인가요)를 통해 PKS 클러스터로 들어오는 요청의 [access log](#애플리케이션-로그와-access-로그의-차이)를 보여줍니다.
 
    - "namespace"와 "service" 필터를 알맞게 선택하면, 우리가 생성한 웹 서버("$SUBDOMAIN_NAME.dev.poolc.org")로 들어온 요청 기록을 확인할 수 있습니다.
 
@@ -299,7 +299,9 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
 
 2. 부하 테스트 실행
 
-   아래 명령어의 "$SUBDOMAIN_NAME"을 [Step 1](#step-1-nginx-배포하기)에서 지정한 값으로 변경한 후 실행해주세요. 총 300,000개의 요청을 최대 1,000개씩 동시에 보내게 됩니다.
+   아래 명령어의 "$SUBDOMAIN_NAME"을 [Step 1](#step-1-nginx-배포하기)에서 지정한 값으로 변경한 후 실행해주세요.
+
+   총 300,000개의 요청을 최대 1,000개씩 동시에 보내게 됩니다.
 
    ```sh
    ab -n 300000 -c 1000 http://$SUBDOMAIN_NAME.dev.poolc.org/
@@ -332,7 +334,7 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
 
 ### Step 4. 실습 완료 후 모든 자원 삭제하기
 
-실습이 끝났다면, 아래 명령어를 실행하여 생성했던 모든 리소스를 한 번에 삭제할 수 있습니다. "$NAMESPACE_NAME" 부분은 Step 1에서 지정한 이름으로 변경해주세요.
+실습이 끝났다면, 아래 명령어를 실행하여 생성했던 모든 리소스를 한 번에 삭제할 수 있습니다. "$NAMESPACE_NAME" 부분은 [Step 1](#step-1-nginx-배포하기)에서 지정한 이름으로 변경해주세요.
 
 ```sh
 kubectl delete namespace $NAMESPACE_NAME
@@ -359,7 +361,7 @@ PKS에서는 Ingress-NGINX Controller가 요청을 내부의 서비스로 전달
 ### 애플리케이션 로그와 access 로그의 차이
 
 - **애플리케이션 로그 (Logs / App)**: 컨테이너 내부에서 실행되는 애플리케이션이 직접 출력하는 로그입니다. "console.log", "print" 문 등으로 출력하는 내용들이 여기에 해당하며, 애플리케이션의 내부 동작을 디버깅하는 데 주로 사용됩니다.
-- **access 로그 (Logs / Ingress-NGINX)**: 클러스터 외부에서 내부의 서비스로 들어오는 모든 HTTP 요청에 대한 기록입니다. 어떤 사용자가 언제, 어떤 주소로, 어떤 메소드(GET, POST 등)를 사용해 접속했는지 등의 정보를 담고 있어 트래픽 분석이나 접근 제어에 유용합니다.
+- **access 로그 (Logs / Ingress-NGINX)**: 클러스터로 들어오는 모든 HTTP/HTTPS 요청에 대한 기록입니다. 어떤 사용자가 언제, 어떤 주소로, 어떤 메소드(GET, POST 등)를 사용해 접속했는지 등의 정보를 담고 있어 트래픽 분석이나 접근 제어에 유용합니다.
 
 ### 쿠버네티스 리소스(Resources) 설정하기
 
