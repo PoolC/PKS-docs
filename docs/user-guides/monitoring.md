@@ -134,6 +134,7 @@ spec:
           ports:
             - containerPort: 80
           command: ["/bin/sh", "-c"]
+          # 리소스 요청량 및 최대 제한량을 설정합니다. (성능 및 안정성 확보)
           resources:
             requests:
               cpu: "50m"
@@ -282,14 +283,18 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
 
 1. Apache Bench 설치
 
-   "ab"는 "apache2-utils" 또는 "httpd-tools" 패키지에 포함되어 있습니다. 아래 명령어로 설치해주세요.
+   `ab`는 "apache2-utils" 또는 "httpd-tools" 패키지에 포함되어 있습니다. 아래 명령어로 설치해주세요.
+
+   ##### Ubuntu/Debian/WSL
 
    ```sh
-   # Ubuntu/Debian/WSL
-   $sudo apt-get update && sudo apt-get install apache2-utils -y
-   
-   # macOS (Homebrew)
-   $brew install httpd
+   sudo apt-get update && sudo apt-get install apache2-utils -y
+   ```
+
+   ##### macOS (Homebrew)
+
+   ```sh
+   brew install httpd
    ```
 
 2. 부하 테스트 실행
@@ -297,7 +302,7 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
    아래 명령어의 "$SUBDOMAIN_NAME"을 [Step 1](#step-1-nginx-배포하기)에서 지정한 값으로 변경한 후 실행해주세요. 총 300,000개의 요청을 최대 1,000개씩 동시에 보내게 됩니다.
 
    ```sh
-   $ab -n 300000 -c 1000 http://$SUBDOMAIN_NAME.dev.poolc.org/
+   ab -n 300000 -c 1000 http://$SUBDOMAIN_NAME.dev.poolc.org/
    ```
 
 #### Grafana에서 Metric 확인하기
@@ -306,7 +311,7 @@ curl $SUBDOMAIN_NAME.dev.poolc.org
 
 2. 대시보드 상단의 "Namespace" 필터에서 [Step 1](#step-1-nginx-배포하기)에서 생성한 자신의 네임스페이스를 선택합니다.
 
-3. ab 명령어로 부하를 가하면, 아래 이미지와 같이 CPU 사용량이 급증하는 것을 실시간으로 관찰할 수 있습니다.
+3. `ab` 명령어로 부하를 가하면, 아래 이미지와 같이 CPU 사용량이 급증하는 것을 실시간으로 관찰할 수 있습니다.
 
    <p align="center">
        <img alt="Dashboard under stress" src="../../assets/user_dashboard_stress.webp" />
