@@ -1,13 +1,4 @@
-<!--
-    Actually, the `align` attribute on `p` or `h1` elements is deprecated [1].
-    But who cares? It works nicely! :D
-
-    [1]: https://html.spec.whatwg.org/multipage/obsolete.html#non-conforming-features
--->
-<p align="center">
-    <img src="./assets/pks-logo.webp" width="150px" alt="PKS logo" />
-    <h1 align="center">PKS 공식 문서</h1>
-</p>
+# PKS 공식 문서
 
 PKS (Poolc Kubernetes Service)는 PoolC 동아리원을 위한 내부 쿠버네티스 서비스입니다.
 
