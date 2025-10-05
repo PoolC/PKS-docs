@@ -19,9 +19,9 @@ TODO: 전원 어댑터 정보 추가
 > 구매했었으나, 2025년 8월 25일 기준 4500U 옵션이 비활성화된 상태입니다. 구매일인 2025년 5월 18일
 > 기준 정가는 한화로 156,000원이었습니다.
 
-- Mini PC: https://www.texhoo.com/?ConsumerPC/56.html
-- RAM: https://prod.danawa.com/info/?pcode=11787154
-- SSD: https://prod.danawa.com/info/?pcode=19826411
+- Mini PC: <https://www.texhoo.com/?ConsumerPC/56.html>
+- RAM: <https://prod.danawa.com/info/?pcode=11787154>
+- SSD: <https://prod.danawa.com/info/?pcode=19826411>
 
 ## 사진
 

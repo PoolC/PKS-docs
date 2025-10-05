@@ -415,8 +415,8 @@ git commit -m "chore(ci): add workflow for CI/CD"
      <span>"PoolC" organization에서 레포지토리 이름으로 "pks-argocd-demo"를 사용한 예시</span>
    </p>
 
-5. GitHub Packages Container Registry에 `deployment.yaml`이 참조하고 있는 이미지가 올바르게 업로드된 것을
-   확인할 수 있습니다.
+5. GitHub Packages Container Registry에 `deployment.yaml`이 참조하고 있는 이미지가 올바르게 업로드된
+   것을 확인할 수 있습니다.
 
    <p align="center">
      <img alt="A link to the package" src="../../assets/argocd-packages.webp">
@@ -445,7 +445,8 @@ git commit -m "chore(ci): add workflow for CI/CD"
 
    ![Creating a new app in Argo CD web UI](../../assets/argocd-web-new-app.webp)
 
-3. <a id="edit-using-ui">"GENERAL" 설정값을 입력합니다. "Application Name"을 제외한 나머지는 이미지와 동일하게 설정해주세요.</a>
+3. <a id="edit-using-ui">"GENERAL" 설정값을 입력합니다. "Application Name"을 제외한 나머지는 이미지와
+   동일하게 설정해주세요.</a>
 
    `kubectl get applications -A` 명령어를 통해서도 전체 Application 목록을 확인할 수 있습니다.
    알파벳 소문자와 "-"만으로 이루어진 이름을 사용해주세요.
@@ -455,7 +456,8 @@ git commit -m "chore(ci): add workflow for CI/CD"
      <span>"Application Name"으로 "pks-argocd-demo"를 사용한 예시</span>
    </p>
 
-4. <a id="edit-using-ui-ns">"SOURCE"와 "DESTINATION" 설정값을 입력합니다. "Namespace"를 제외한 나머지는 이미지와 동일하게
+4. <a id="edit-using-ui-ns">"SOURCE"와 "DESTINATION" 설정값을 입력합니다. "Namespace"를 제외한
+   나머지는 이미지와 동일하게
    설정해주세요. 설정을 완료한 뒤 "CREATE"를 클릭해주세요.</a>
 
    `kubectl get ns` 명령어로 전체 Namespace 목록을 확인할 수 있습니다.
@@ -471,6 +473,7 @@ git commit -m "chore(ci): add workflow for CI/CD"
 > 설정값을 정의하므로, 입력란을 하나하나 작성하지 않아도 됩니다. 더 자세한 내용은 부록의
 > [Argo CD의 Application manifest](#argo-cd의-application-manifest)를 참조해주세요.
 
+<!-- markdownlint-disable-next-line ol-prefix -->
 5. 상세 보기를 통해 Application의 상태 및 하위 리소스를 확인할 수 있습니다.
 
    ![Argo CD Applications tiles](../../assets/argocd-web-app-tiles.webp)
@@ -479,6 +482,7 @@ git commit -m "chore(ci): add workflow for CI/CD"
      <span>"Application Name" 및 "Namespace"로 "pks-argocd-demo"를 사용한 예시</span>
    </p>
 
+<!-- markdownlint-disable-next-line ol-prefix -->
 6. 상세 보기 화면에서 배포한 Python 웹 서버에 접속해볼 수 있습니다.
 
    <p align="center">
@@ -619,8 +623,8 @@ Argo CD web UI의 "EDIT AS YAML" 기능을 이용해 Application 리소스에 �
 
 ### GitHub Actions가 무엇인가요?
 
-> GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that
-> allows you to automate your build, test, and deployment pipeline.
+> GitHub Actions is a continuous integration and continuous delivery (CI/CD)
+> platform that allows you to automate your build, test, and deployment pipeline.
 >
 > -- [Understanding GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions#overview)
 

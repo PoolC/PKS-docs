@@ -24,7 +24,7 @@
   - [로그 조회하기](#로그-조회하기)
 - [리소스 수정하기](#리소스-수정하기)
 - [리소스 삭제하기](#리소스-삭제하기)
-- [컨테이너에 접근하기](#컨테이너에-접근하기)
+- [컨테이너에서 명령어 실행하기](#컨테이너에서-명령어-실행하기)
 - [더 알아보기](#더-알아보기)
 
 ## 리소스 생성하기
@@ -101,9 +101,9 @@ kubectl describe -n argocd pod argocd-application-controller-0
 
 #### 참조
 
-- Nodes: https://kubernetes.io/docs/concepts/architecture/nodes/
-- Workloads: https://kubernetes.io/docs/concepts/workloads/
-- Service: https://kubernetes.io/docs/concepts/services-networking/service/
+- Nodes: <https://kubernetes.io/docs/concepts/architecture/nodes/>
+- Workloads: <https://kubernetes.io/docs/concepts/workloads/>
+- Service: <https://kubernetes.io/docs/concepts/services-networking/service/>
 
 ### 로그 조회하기
 
@@ -132,7 +132,7 @@ kubectl apply -f ./my-deployment.yaml
 
 ### 참조
 
-- Manifests: https://kubernetes.io/docs/concepts/overview/working-with-objects/#describing-a-kubernetes-object
+- Manifests: <https://kubernetes.io/docs/concepts/overview/working-with-objects/#describing-a-kubernetes-object>
 
 ## 리소스 삭제하기
 
