@@ -14,19 +14,19 @@ flowchart TB
     direction TB
 
     subgraph Services[" "]
-	    direction TB
+      direction TB
       ArgoCD["Argo CD<br/>(GitOps Operator)"]
       Ingress["ingress-nginx"]
       AppSvc["Application"]
     end
 
-	  subgraph PhysicalNodes["Physical Nodes"]
-	    direction TB
-	    Node1["Node1<br/>Control Plane + Worker"]
-	    Node2["Node2<br/>Control Plane + Worker"]
-	    Node3["Node3<br/>Control Plane + Worker"]
-	  end
-	end
+    subgraph PhysicalNodes["Physical Nodes"]
+      direction TB
+      Node1["Node1<br/>Control Plane + Worker"]
+      Node2["Node2<br/>Control Plane + Worker"]
+      Node3["Node3<br/>Control Plane + Worker"]
+    end
+  end
 
   PhysicalNodes -->|run| Services
 

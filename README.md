@@ -2,7 +2,9 @@
 
 PKS (Poolc Kubernetes Service)는 PoolC 동아리원을 위한 내부 쿠버네티스 서비스입니다.
 
-PKS는 2024년 11월 30일, PoolC 홈커밍 행사 중 최유찬 회원과 양정일(@jjungs7) 회원의 비공식적인 대화에서 출발했습니다. 이후 양정일 회원과 양제성(@J3m3) 회원 간의 논의를 기점으로 초기 구상이 구체화되기 시작했고, 진영민(@jimmy0006) 회원이 합류하면서 개발이 본격화되었습니다. 초기 기여자 여러분들께 감사드립니다!
+PKS는 2024년 11월 30일, PoolC 홈커밍 행사 중 최유찬 회원과 양정일(@jjungs7) 회원의 비공식적인 대화에서
+출발했습니다. 이후 양정일 회원과 양제성(@J3m3) 회원 간의 논의를 기점으로 초기 구상이 구체화되기 시작했고,
+진영민(@jimmy0006) 회원이 합류하면서 개발이 본격화되었습니다. 초기 기여자 여러분들께 감사드립니다!
 
 ## 문서 모음
 
@@ -27,15 +29,18 @@ PKS는 다음과 같은 고민에서 시작됐습니다.
 
 > "씁... 없으면 만들면 되는 거 아닌가?"
 
-이렇게 PKS는 동아리원이 함께 실습하고, 배포하고, 운영해볼 수 있는 쿠버네티스 기반의 공용 인프라를 구축하려는 시도에서 출발했습니다. 거창하게 여러 말을 붙였지만, 결국 PKS의 목표는 단순합니다.
+이렇게 PKS는 동아리원이 함께 실습하고, 배포하고, 운영해볼 수 있는 쿠버네티스 기반의 공용 인프라를 구축하려는 시도에서
+출발했습니다. 거창하게 여러 말을 붙였지만, 결국 PKS의 목표는 단순합니다.
 
 **_"동아리원이 안심하고 터뜨려도 되는, 마음껏 갖고 놀 수 있는 장난감."_**
 
 ## 관련 레포지토리
 
 - PKS 세미나: TBD
-- [PKS Credentials Updater](https://github.com/PoolC/pks-credentials-updater): PKS 클러스터의 유저 정보를 일정 주기로 PoolC API 서버와 동기화하는 어플리케이션
-- [PKS Bootstrapping](https://github.com/PoolC/pks-bootstrapping): PKS 클러스터 부트스트래핑을 위한 manifest 모음
+- [PKS Credentials Updater](https://github.com/PoolC/pks-credentials-updater):
+  PKS 클러스터의 유저 정보를 일정 주기로 PoolC API 서버와 동기화하는 어플리케이션
+- [PKS Bootstrapping](https://github.com/PoolC/pks-bootstrapping):
+  PKS 클러스터 부트스트래핑을 위한 manifest 모음
 
 ## Special Thanks To
 

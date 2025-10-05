@@ -19,8 +19,8 @@
 PKS 클러스터는 연세대학교 사설망 내부에 설치되어 있습니다. 교내 네트워크(yonsei Wi-Fi, poolc-5g Wi-Fi 등)를
 이용하지 않고 **외부에서 접속하는 경우에 한해**, YSVPN을 이용해야 합니다. 정보통신처의
 [YSVPN 관련 공지사항](https://yis.yonsei.ac.kr/ics/service/PolicyApplyInfo.do)과
-[YSVPN 사용자 메뉴얼](https://ibook.yonsei.ac.kr/Viewer/ysvpn_user_manual)을 통해 각자의 환경에 맞게
-YSVPN을 설치해주세요.
+[YSVPN 사용자 메뉴얼](https://ibook.yonsei.ac.kr/Viewer/ysvpn_user_manual)을 통해 각자의 환경에
+맞게 YSVPN을 설치해주세요.
 
 ## 1. `kubectl` 바이너리 설치
 
@@ -61,8 +61,7 @@ choco install kubernetes-cli
 
 <p align="center">
     <!-- TODO: 이미지 에셋 디렉토리 구조 변경 -->
-    <img src="../../assets/windows.downloadkubernetes.com.webp" />
-    <br />
+    <img alt="Downloading kubectl binary for windows" src="../../assets/windows.downloadkubernetes.com.webp">
     <span>Windows에서 바이너리를 다운로드받는 예시</span>
 </p>
 
@@ -84,7 +83,7 @@ choco install kubernetes-cli
 
 4. 아래와 같이 오류 없이 명령어가 실행됐다면, 클러스터 접속을 위한 준비를 모두 마친 것입니다.
 
-   ```
+   ```text
    User "pks" set.
    Cluster "pks" set.
    Context "pks" created.
@@ -189,6 +188,6 @@ current-context: pks # `kubectl config use-context`를 통해 수정되는 부�
 더 자세한 정보는 아래 내용들을 참고해주세요!
 
 - `kubectl config help` 명령어 출력 결과
-- https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
-- https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
-- https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config/#see-also
+- <https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/>
+- <https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/>
+- <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config/#see-also>
