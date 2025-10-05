@@ -438,8 +438,6 @@ git commit -m "chore(ci): add workflow for CI/CD"
    ![K8s item in the main nav bar](../../assets/poolc-web-nav.webp)
    ![Argo CD username & password in PoolC homepage](../../assets/argocd-username-password.webp)
 
-#### Web UI를 사용해 레포지토리 등록하기
-
 1. [http://argocd.dev.poolc.org](http://argocd.dev.poolc.org)에 접속한 뒤,
    풀씨 홈페이지에서 확인한 username과 password를 이용해 로그인해주세요.
 
@@ -493,57 +491,6 @@ git commit -m "chore(ci): add workflow for CI/CD"
      <span>서브도메인으로 "pks-argocd-demo"를 사용한 예시</span>
    </p>
 
-#### CLI를 사용해 레포지토리 등록하기
-
-1. [Argo CD CLI installation documentation](https://argo-cd.readthedocs.io/en/stable/cli_installation/)를
-참조해 Argo CD CLI를 설치해주세요.
-
-2. 아래 내용을 참조해 Argo CD Application 리소스를 생성해주세요.
-
-   1. 하단의 스크립트 내용을 복사한 후, 사용하는 텍스트 에디터에 붙여넣어주세요.
-   2. `USERNAME`과 `PASSWORD`를 풀씨 홈페이지에서 확인한 값으로 수정해주세요.
-   3. `APPLICATION_NAME`을 원하는 값으로 수정해주세요.
-      - 예시: pks-argocd-demo
-   4. `NAMESPACE_NAME`을 원하는 값으로 수정해주세요.
-      - 예시: pks-argocd-demo
-
-```bash
-USERNAME="풀씨 홈페이지에서 확인한 Username"
-PASSWORD="풀씨 홈페이지에서 확인한 Password"
-APPLICATION_NAME="UNIQUE_STRING_WITH_LOWERCASE_ALPHABET_OR_HYPHEN"
-NAMESPACE_NAME="UNIQUE_STRING_WITH_LOWERCASE_ALPHABET_OR_HYPHEN"
-
-argocd login grpc.argocd.dev.poolc.org --insecure --username $USERNAME --password $PASSWORD
-argocd app create --insecure -f - <<EOF
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: $APPLICATION_NAME
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: shared-proj
-  source:
-    repoURL: https://github.com/PoolC/pks-argocd-demo.git
-    path: manifests
-    targetRevision: HEAD
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: $NAMESPACE_NAME
-  syncPolicy:
-    automated:
-      prune: true
-      enabled: true
-    syncOptions:
-      - CreateNamespace=true
-      - ApplyOutOfSyncOnly=true
-EOF
-```
-
-3. 이후 브라우저를 통해 `$SUBDOMAIN_NAME`.dev.poolc.org에 접속하면, 배포한 Python 웹 서버에 접속할 수
-   있습니다.
-
 ### Step 8. CI/CD 파이프라인 테스트
 
 [Motivation](#motivation)에서 언급했듯, 지금까지의 설정은 치후 코드 업데이트에 따른 배포 과정을 자동화하기
@@ -581,8 +528,6 @@ EOF
 
 ### Step 9. 실습 완료 후 모든 자원 삭제하기
 
-#### Web UI를 사용해 자원 삭제하기
-
 1. 생성한 Application의 상세 보기 화면에서, 해당 Application으로 관리되는 모든 하위 리소스를 삭제할 수 있습니다.
 
    ![Delete Application from Argo CD web UI](../../assets/argocd-web-delete.webp)
@@ -593,34 +538,6 @@ EOF
    ```bash
    kubectl delete ns $NAMESPACE_NAME
    ```
-
-#### CLI를 사용해 자원 삭제하기
-
-아래 내용을 참조해 Argo CD Application 리소스를 삭제해주세요.
-
-1. 하단의 스크립트 내용을 복사한 후, 사용하는 텍스트 에디터에 붙여넣어주세요.
-2. `USERNAME`과 `PASSWORD`를 풀씨 홈페이지에서 확인한 값으로 수정해주세요.
-3. `APPLICATION_NAME`을 [앞서 설정한 Application의 이름](#cli를-사용해-레포지토리-등록하기)으로 수정해주세요.
-   - 예시: pks-argocd-demo
-4. `NAMESPACE_NAME`을 [앞서 설정한 Namespace의 이름](#cli를-사용해-레포지토리-등록하기)으로 수정해주세요.
-   - 예시: pks-argocd-demo
-
-```bash
-USERNAME="풀씨 홈페이지에서 확인한 Username"
-PASSWORD="풀씨 홈페이지에서 확인한 Password"
-APPLICATION_NAME="UNIQUE_STRING_WITH_LOWERCASE_ALPHABET_OR_HYPHEN"
-NAMESPACE_NAME="UNIQUE_STRING_WITH_LOWERCASE_ALPHABET_OR_HYPHEN"
-
-# 세션 만료를 고려해 로그아웃 후 재로그인합니다. 이미 로그인이 되어 있는 상태라면,
-# logout / login 명령어를 하나의 명령어로 대체할 수도 있습니다.
-# argocd relogin --password $PASSWORD
-argocd logout grpc.argocd.dev.poolc.org --insecure
-argocd login grpc.argocd.dev.poolc.org --insecure --username $USERNAME --password $PASSWORD
-
-argocd app delete $APPLICATION_NAME --insecure
-
-kubectl delete ns $NAMESPACE_NAME
-```
 
 ## 부록
 
