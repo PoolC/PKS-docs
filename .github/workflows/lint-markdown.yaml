@@ -1,0 +1,40 @@
+name: Check markdown linting issues
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**/*.md"
+
+permissions:
+  contents: read
+
+jobs:
+  lint-markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      # The changed-files action automatically fetches more history of the
+      # current PR branch.
+      # See:
+      # - https://github.com/tj-actions/changed-files/blob/24d32ffd492484c1d75e0c0b894501ddb9d30d62/src/commitSha.ts#L115-L166
+      - name: Get all changed markdown files
+        id: changed-markdown-files
+        uses: tj-actions/changed-files@v47
+        with:
+          files: "**/*.md"
+          separator: ","
+
+      - name: Run markdownlint
+        if: steps.changed-markdown-files.outputs.any_changed == 'true'
+        uses: DavidAnson/markdownlint-cli2-action@v20
+        continue-on-error: false
+        with:
+          globs: ${{ steps.changed-markdown-files.outputs.all_changed_files }}
+          separator: ","
+          config: .markdownlint.yaml
