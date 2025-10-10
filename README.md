@@ -36,7 +36,8 @@ PKS는 다음과 같은 고민에서 시작됐습니다.
 
 ## 관련 레포지토리
 
-- PKS 세미나: TBD
+- [PKS 세미나](https://github.com/J3m3/poolc-k8s-service):
+  PKS 환경에서 Kubernetes 및 Argo CD 사용 가이드를 다룬 세미나
 - [PKS Credentials Updater](https://github.com/PoolC/pks-credentials-updater):
   PKS 클러스터의 유저 정보를 일정 주기로 PoolC API 서버와 동기화하는 어플리케이션
 - [PKS Bootstrapping](https://github.com/PoolC/pks-bootstrapping):
